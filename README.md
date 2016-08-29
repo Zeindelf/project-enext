@@ -5,6 +5,7 @@
 Metodologias/Tecnologias utilizadas:
 
 * VueJS
+* ES2015 (Babel)
 * SASS
 * Pug/Jade
 * Gulp
