@@ -1,0 +1,105 @@
+.main-header__navbar {
+    background: $_purple;
+    margin-top: 1em;
+
+    &--container {
+        @extend %container;
+        display: flex;
+        align-items: center;
+
+        // Responsive menu
+        @media (max-width: $screen-md-min) {
+            display: block;
+            position: fixed;
+            left: 0;
+            z-index: 99999;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background: $_purple;
+            transition: all .5s ease;
+        }
+
+        &-open {
+            top: 6.5em;
+        }
+
+        &-close {
+            top: -100%;
+        }
+    }
+
+    &--items {
+        display: flex;
+        padding: .5em 0;
+
+        @media (max-width: $screen-md-min) {
+            display: block;
+            padding-bottom: 1em;
+        }
+
+        li {
+            @media (max-width: $screen-md-min) {
+                border-bottom: 1px solid rgba($_white, .2);
+            }
+        }
+
+        a {
+            display: block;
+            position: relative;
+            color: $_white;
+            line-height: 2.8;
+            padding: 0 1em;
+            margin-right: .3em;
+            border-radius: $_radius;
+
+            @media (max-width: $screen-md-min) {
+                padding-left: 4em;
+            }
+
+            &:hover {
+                background: $_dark-purple;
+            }
+        }
+    }
+
+    // Caret Dinâmico
+    // Pode ser adicionada com JS quando houver sub-itens
+    &--sub-menu {
+        &:after {
+            content: '';
+            display: inline-block;
+            position: relative;
+            margin-left: .8em;
+            top: -4px;
+
+            width: 0;
+            heigth: 0;
+            border-top: 5px solid $_white;
+            border-right: 5px solid transparent;
+            border-left: 5px solid transparent;
+
+            @media (max-width: $screen-md-min) {
+                display: none;
+            }
+        }
+    }
+
+    &--login {
+        margin-left: auto;
+
+        @media (max-width: $screen-md-min) {
+            margin: 2em auto;
+            text-align: center;
+        }
+
+        > span {
+            color: rgba($_white, .5);
+            margin: 0 .7em;
+        }
+
+        > a {
+            color: $_white;
+        }
+    }
+}

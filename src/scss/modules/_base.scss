@@ -1,0 +1,34 @@
+body {
+	font-family: $_font-primary;
+	font-size: $_font-size-base;
+
+	background-color: $_body-bg;
+	color: $_text-color-base;
+
+	line-height: 1.2;
+}
+
+.main-header,
+.main-content,
+.main-footer {
+    &__container {
+        @extend %container;
+    }
+
+    &__content {
+        @extend %row;
+    }
+}
+
+input[type="text"] {
+    line-height: 3;
+    border: 1px solid $_dark-grey;
+    border-radius: $_radius;
+
+    outline: none;
+    transition: all .5s;
+
+    &:focus {
+        box-shadow: 0 0 3px 0 darken($_dark-grey, 15%);
+    }
+}

@@ -1,0 +1,28 @@
+.main-header
+    .main-header__container
+        .main-header__content
+            .main-header__content--logo
+                h1.main-header__content--title Merlin's
+                    span.main-header__content--title-part Potions
+                p.main-header__content--sub-title fine potions since 1026
+
+            .main-header__content--search(:class="{ 'main-header__content--search-open': showMenu, 'main-header__content--search-close': !showMenu }")
+                .main-header__content--search-close(v-show="showMenu", @click="closeMenu")
+                form.main-header__content--search-form
+                    label(for="search").main-header__content--search-icon
+                    input(type="text", id="search" placeholder="Search our stock")
+
+            .main-header__content--cart
+                .main-header__content--cart-offer
+                    p Free shipping
+                        span.main-header__content--cart-offer-small on orders over $50
+                .main-header__content--cart-bag(@click="toggleCart")
+                    .main-header__content--cart-bag-item
+                    p BAG:
+                        span.main-header__content--cart-qnt {{ productToCart.length }}
+
+                include ../content/cart.pug
+
+    .main-header__menu(@click="openMenu")
+        .main-header__menu--collapsed
+    include ./navbar.pug

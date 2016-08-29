@@ -1,0 +1,15 @@
+@mixin button-submit {
+    font-size: $_font-size-medium * 1.2;
+    text-transform: uppercase;
+    padding: .5em;
+    border: none;
+    border-radius: $_radius;
+    outline: none;
+    background: $_red;
+    color: $_white;
+    cursor: pointer;
+
+    &:hover {
+        background: darken($_red, 5);
+    }
+}

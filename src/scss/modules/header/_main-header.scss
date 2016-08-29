@@ -1,0 +1,245 @@
+.main-header {
+    &__content {
+        &--logo,
+        &--search,
+        &--cart {
+            @include make-md-column(4);
+        }
+
+        &--logo {
+            margin: 1em 0;
+
+            @media (max-width: $screen-md-min) {
+                text-align: center;
+            }
+        }
+
+        &--title {
+            font-size: $_font-size-large * 1.5;
+            font-family: $_font-secondary;
+            color: $_red;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+
+            @media (max-width: $screen-sm-min) {
+                font-size: $_font-size-large * 1.2;
+            }
+
+            &-part {
+                font-weight: 300;
+                margin-left: 10px;
+            }
+        }
+
+        &--sub-title {
+            font-size: $_font-size-medium * 1.1;
+            font-weight: 700;
+            color: $_purple;
+            padding-left: 35px;
+            margin-top: 5px;
+            position: relative;
+
+            @media (max-width: $screen-md-min) {
+                display: inline-block;
+                margin-left: -35px;
+            }
+
+            @media (max-width: $screen-sm-min) {
+                font-size: $_font-size-small * 1.2;
+            }
+
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                height: 2px;
+                width: 30px;
+                background: #d2d2d2;
+                top: 8px;
+
+                @media (max-width: $screen-sm-min) {
+                    width: 20px;
+                }
+            }
+
+            &:before {
+                left: 0;
+
+                @media (max-width: $screen-sm-min) {
+                    left: 10px;
+                }
+            }
+
+            &:after {
+                margin-left: 5px;
+            }
+        }
+
+        &--search {
+            // Responsive menu
+            @media (max-width: $screen-md-min) {
+                position: fixed;
+                left: 0;
+                z-index: 99999;
+                width: 100%;
+                padding-bottom: 2em;
+                padding-left: 6em;
+                background: $_white;
+                transition: all .5s ease;
+
+                &-open {
+                    top: 0;
+                }
+
+                &-close {
+                    top: -100%;
+                }
+            }
+
+            // Responsive menu
+            &-close {
+                &:before {
+                    content: '\2716';
+                    display: none;
+                    position: absolute;
+                    z-index: 99999;
+                    top: 25px;
+                    left: 25px;
+                    font-size: $_font-size-large * 2;
+                    color: $_purple;
+                    cursor: pointer;
+
+                    @media (max-width: $screen-md-min) {
+                        display: block;
+                    }
+                }
+            }
+
+            &-icon {
+                position: absolute;
+                top: 50px;
+                left: 10px;
+            }
+
+            input[type="text"] {
+                width: 80%;
+                padding: 0 .3em 0 2.5em;
+                margin-top: 2.4em;
+
+                background-image: url('../images/icons.png');
+                background-position: -270px -15px;
+                background-repeat: no-repeat;
+            }
+        }
+
+        &--cart {
+            display: flex;
+            align-items: center;
+            margin-top: 1.5em;
+
+            &-offer {
+                font-size: $_font-size-medium * 1.4;
+                color: $_red;
+
+                @media (max-width: $screen-md-min) {
+                    position: absolute;
+                    left: 0;
+                    width: 100%;
+                    font-weight: 700;
+                    background: #e6e6e6;
+                    color: #999;
+                    margin-top: 15px;
+                    text-align: center;
+                    padding: .4em 0;
+                }
+
+                &-small {
+                    display: block;
+                    font-size: $_font-size-small * 0.9;
+                    margin-top: 5px;
+
+                    @media (max-width: $screen-md-min) {
+                        display: inline-block;
+                        margin-left: 10px;
+                        font-size: $_font-size-medium * 1.2;
+                    }
+                }
+            }
+
+            &-bag {
+                @media (max-width: $screen-md-min) {
+                    position: absolute;
+                    top: -85px;
+                    right: 1em;
+                    flex-direction: column;
+                }
+
+                display: flex;
+                align-items: center;
+                margin-left: auto;
+                cursor: pointer;
+
+                &-item {
+                    width: 44px;
+                    height: 49px;
+                    background-image: url('../images/icons.png');
+                    background-repeat: no-repeat;
+                    background-position: 0 0;
+                }
+
+                p {
+                    font-size: $_font-size-large;
+                    text-transform: uppercase;
+                    margin-left: 20px;
+                    color: #ccc;
+
+                    @media (max-width: $screen-md-min) {
+                        font-size: $_font-size-medium;
+                        margin-left: -5px;
+                    }
+                }
+            }
+
+            &-qnt {
+                font-family: $_font-secondary;
+                font-size: $_font-size-medium * 1.5;
+                font-weight: 700;
+                color: $_red;
+                margin-left: 10px;
+
+                @media (max-width: $screen-md-min) {
+                    font-size: $_font-size-medium;
+                }
+            }
+        }
+    }
+
+    &__menu {
+        display: none;
+        cursor: pointer;
+
+        @media (max-width: $screen-md-min) {
+            display: block;
+            position: absolute;
+            top: 0;
+            width: 50px;
+            height: 35px;
+            margin-top: 2em;
+            margin-left: 15px;
+        }
+
+        &--collapsed {
+            @media (max-width: $screen-md-min) {
+                position: absolute;
+                width: 50px;
+                height: 8px;
+                background: $_purple;
+                border-radius: $_radius;
+
+                box-shadow: 0 13px 0 $_purple,
+                    0 26px 0 $_purple;
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+.cart__container(v-show="cart")
+    .cart__content
+        h3.cart__content--title My Bag
+        .cart__content--close(@click="closeCart")
+
+        ul
+            p.cart__content--empty(v-if="productToCart.length == 0") There's No Potions Here
+            li.cart__content--item(v-for="prod in productToCart", track-by="$index")
+                .cart__content--image
+                    img(:src="'products/' + prod.image", alt="")
+                .cart__content--desc
+                    h4.cart__content--desc-title {{ prod.name }}
+                    p.cart__content--desc-price ${{ prod.price }}
+                        span.cart__content--desc-qnt x{{ prod.qnt }}
+                .cart__content--desc-remove(@click="removeToCart(prod.id)")
+
+        .cart__content--total(v-if="productToCart.length > 0")
+            h3.cart__content--total-title Total
+                span.cart__content--total-price ${{ productTotal }}

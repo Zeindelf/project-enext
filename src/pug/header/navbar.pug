@@ -1,0 +1,14 @@
+.main-header__navbar
+    .main-header__navbar--container(:class="{ 'main-header__navbar--container-open': showMenu, 'main-header__navbar--container-close': !showMenu }")
+        ul.main-header__navbar--items
+            li: a(href="#").main-header__navbar--sub-menu Potions
+            li: a(href="#").main-header__navbar--sub-menu Ingredients
+            li: a(href="#").main-header__navbar--sub-menu Books
+            li: a(href="#").main-header__navbar--sub-menu Supplies
+            li: a(href="#").main-header__navbar--sub-menu Charms
+            li: a(href="#") Clearance!
+
+        p.main-header__navbar--login
+            a(href="#") Sign In
+            span or
+            a(href="#") Sing Up

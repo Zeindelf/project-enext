@@ -1,0 +1,92 @@
+.lightbox {
+    &__overlay {
+        &:before {
+            content: '';
+            position: fixed;
+            z-index: 999;
+            background: rgba(#000, .5);
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__container {
+        position: fixed;
+        z-index: 9999;
+        background: $_white;
+        width: 90%;
+        max-width: 800px;
+        left: 50%;
+        top: 3em;
+        padding: 5em 1em;
+
+        transform: translate(-50%, 0);
+        box-shadow: 0 0 20px 3px rgba(#000, .5);
+
+        @include make-row;
+
+        &--image {
+            @include make-xs-column(7);
+            @include make-sm-column(7);
+            @include make-md-column(7);
+        }
+
+        &--desc {
+            @include make-xs-column(5);
+            @include make-sm-column(5);
+            @include make-md-column(5);
+
+            @media (max-width: $screen-sm-min) {
+                p {
+                    font-size: $_font-size-small;
+                }
+            }
+        }
+
+        &--title {
+            font-family: $_font-secondary;
+            font-size: $_font-size-large * 1.2;
+            margin-bottom: 1em;
+
+            @media (max-width: $screen-sm-min) {
+                font-size: $_font-size-medium * 1.2;
+            }
+        }
+
+        &--descript {
+            margin-top: 1em;
+            margin-bottom: .5em;
+
+            @media (max-width: $screen-sm-min) {
+                font-size: $_font-size-medium;
+            }
+        }
+
+        &--price {
+            display: block;
+            color: $_red;
+            margin-bottom: 1em;
+        }
+
+        &--button-submit {
+            @extend %button-submit;
+
+            @media (max-width: $screen-sm-min) {
+                font-size: $_font-size-small * 1.2;
+            }
+        }
+
+        &--close {
+            &:before {
+                content: '\2716';
+                display: block;
+                font-size: $_font-size-large;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                cursor: pointer;
+            }
+        }
+    }
+}

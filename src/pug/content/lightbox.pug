@@ -1,0 +1,18 @@
+.lightbox__overlay(v-show="openDetails")
+    .lightbox__container
+        .lightbox__container--image
+            img(:src="'products/' + productDetail.image", alt="")
+        .lightbox__container--desc
+            h3.lightbox__container--title {{ productDetail.name }}
+            h3.lightbox__container--descript Use / Effect:
+            p {{ productDetail.effect }}
+
+            h3.lightbox__container--descript Ingredients:
+            p(v-for="ingredient in productDetail.ingredients") {{ ingredient }}
+
+            h3.lightbox__container--descript Price:
+                span.lightbox__container--price ${{ productDetail.price }}
+
+            button.lightbox__container--button-submit(@click="addToCart(productDetail.id)") Add to Cart
+
+        .lightbox__container--close(@click="closeDetails")

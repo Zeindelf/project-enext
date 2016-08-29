@@ -1,0 +1,14 @@
+include ./lightbox.pug
+
+.main-content
+    .main-content__container
+        .main-content__content
+
+            .main-content__content--title
+                h2 Potions
+
+            .main-content__content--product(v-for="product in products")
+                .main-content__content--item(@click="openProduct(product.id)")
+                    img(:src="'products/' + product.image", alt="" title="{{ product.name }}")
+                    h3.main-content__content--name {{ product.name }} -
+                        span.main-content__content--price  ${{ product.price }}

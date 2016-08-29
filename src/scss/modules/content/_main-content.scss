@@ -1,0 +1,37 @@
+.main-content {
+    &__content {
+        margin: 1.5em 0;
+
+        &--title {
+            @include make-xs-column(12);
+            @include make-sm-column(12);
+            @include make-md-column(12);
+
+            margin: 3em 0;
+
+            @media (max-width: $screen-md-min) {
+                text-align: center;
+            }
+        }
+
+        &--product {
+            @include make-xs-column(6);
+            @include make-sm-column(6);
+            @include make-md-column(4);
+
+            margin-bottom: 5em;
+        }
+
+        &--item {
+            cursor: pointer;
+        }
+
+        &--name {
+            text-align: center;
+        }
+
+        &--price {
+            color: $_red;
+        }
+    }
+}
