@@ -172,7 +172,7 @@ new Vue({
      */
     ready () {
         this.$http.get('potions.json').then( ({ data }) => {
-            this.products = data.potions
+            this.products = JSON.parse(data).potions
         })
     }
 })

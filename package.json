@@ -4,6 +4,7 @@
   "description": "Project eNext",
   "main": "main.js",
   "scripts": {
+    "start": "gulp && gulp watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Wellington Barreto <zeindelf@hotmail.com>",
